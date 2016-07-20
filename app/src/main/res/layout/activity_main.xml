@@ -1,0 +1,37 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="person"
+            type="com.oom.rxandroid.model.Person"/>
+
+        <variable
+            name="presenter"
+            type="com.oom.rxandroid.view.activity.MainActivity.Presenter"/>
+    </data>
+
+    <LinearLayout
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context="com.oom.rxandroid.view.activity.MainActivity">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="输入姓名"
+            android:onTextChanged="@{presenter::onTextChanged}"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:text="@{person.name}"
+            android:onClick="@{()->presenter.toastString(person.name)}"
+            android:textColor="#000000"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+</layout>
