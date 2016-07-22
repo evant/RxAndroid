@@ -20,6 +20,6 @@ public class Person extends BaseObservable {
 
     public void setName( String name ) {
         this.name = name;
-        notifyPropertyChanged( BR.person );
+//        notifyPropertyChanged( BR.name );
     }
 }
