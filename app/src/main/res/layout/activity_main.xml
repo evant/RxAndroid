@@ -18,31 +18,18 @@
         android:orientation="vertical"
         tools:context="com.oom.rxandroid.view.activity.MainActivity">
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="输入姓名"
-            android:onTextChanged="@{presenter::onTextChanged}"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:clickable="true"
-            android:hint="姓名"
-            android:text="@={person.name}"
-            android:onClick="@{()->presenter.toastString(person.name)}"
-            android:textColor="#000000"
-            android:textSize="20sp"/>
-
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@{person.name}"/>
+            android:layout_margin="8dp"
+            android:layout_gravity="center_horizontal"
+            android:onClick="@{v->presenter.addPerson()}"
+            android:text="Add Person"/>
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_main"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="#aaee4422"/>
     </LinearLayout>
 

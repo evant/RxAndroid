@@ -15,10 +15,13 @@ import com.oom.rxandroid.databinding.ActivityMainBinding;
 import com.oom.rxandroid.model.Person;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
     Person person;
+    ArrayList< Person > persons = new ArrayList<>();
+    MainUserAdapter adapter;
 
     @Override
     protected void onCreate( Bundle savedInstanceState ) {
@@ -34,14 +37,13 @@ public class MainActivity extends AppCompatActivity {
         binding.setVariable( BR.person, person );
         binding.setPresenter( new Presenter() );
 
-        ArrayList< Person > persons = new ArrayList<>();
-        MainUserAdapter adapter = new MainUserAdapter( binding.rvMain, persons, R.layout.item_main_user );
+        adapter = new MainUserAdapter( binding.rvMain, persons, R.layout.item_main_user );
         binding.rvMain.setHasFixedSize( true );
         binding.rvMain.setLayoutManager( new LinearLayoutManager( this, LinearLayoutManager.VERTICAL, true ) );
         binding.rvMain.setAdapter( adapter );
 
 
-        for ( int i = 0; i < 10; i++ ) {
+        for ( int i = 0; i < 5; i++ ) {
             Person person = new Person();
             person.setName( "name : " + i );
             persons.add( person );
@@ -51,21 +53,14 @@ public class MainActivity extends AppCompatActivity {
 
     public class Presenter {
 
-        public void onTextChanged( CharSequence s, int start, int before, int count ) {
-            person.setName( s.toString() );
-            Log.e( "CcYang", person.getName() );
+        public void addPerson() {
+            Person person = new Person();
+            person.setName( "name : " + new Random().nextInt( 100 ) );
+            persons.add( person );
+            adapter.notifyDataSetChanged();
         }
 
-        public void onClick( View view ) {
-            Toast.makeText( MainActivity.this, "点到了", Toast.LENGTH_SHORT ).show();
-        }
-
-        public void onClickListenerBinding( Person p ) {
-            Toast.makeText( MainActivity.this, p.getName() + "\n" + person.getName(), Toast.LENGTH_SHORT ).show();
-            person.setName( "Hello onClickListener!" );
-        }
-
-        public void toastString(String words) {
+        public void toastString( String words ) {
             Toast.makeText( MainActivity.this, words, Toast.LENGTH_SHORT ).show();
         }
     }
