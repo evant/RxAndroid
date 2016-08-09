@@ -3,23 +3,18 @@
 
     <data>
 
+        <import type="android.graphics.Color"/>
 
+        <variable
+            name="item"
+            type="com.oom.rxandroid.model.Person"/>
     </data>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <ViewStub
-            android:id="@+id/vs_left"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout="@layout/view_stub_left"/>
-
-        <ViewStub
-            android:id="@+id/vs_right"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout="@layout/view_stub_right"/>
-    </RelativeLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="@{item.name}"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:textColor="@{Color.parseColor(item.color)}"/>
 </layout>

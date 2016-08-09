@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
 apply plugin: 'me.tatarka.retrolambda'
 def AAVersion = '3.3.2'
+def ReclcyerViewPagerVersion = 'v1.1.0'
 
 android {
     compileSdkVersion 24
@@ -83,4 +84,8 @@ dependencies {
     compile "org.androidannotations:androidannotations-api:$AAVersion"
     // 注解框架
     compile 'org.projectlombok:lombok:1.16.8'
+
+    // RecyclerViewPager
+    compile "com.github.lsjwzh.RecyclerViewPager:lib:$ReclcyerViewPagerVersion"
+    compile "com.github.lsjwzh.RecyclerViewPager:tablayoutsupport:$ReclcyerViewPagerVersion"
 }

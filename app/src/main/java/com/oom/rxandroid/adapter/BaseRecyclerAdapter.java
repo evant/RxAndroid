@@ -60,6 +60,10 @@ public abstract class BaseRecyclerAdapter< T > extends RecyclerView.Adapter< Bas
         return listData.size();
     }
 
+    public T getItem(int position) {
+        return listData.get( position );
+    }
+
     public void setOnItemClickListener( OnItemClickListener l ) {
         listener = l;
     }

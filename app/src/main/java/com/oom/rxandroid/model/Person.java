@@ -12,6 +12,7 @@ import com.android.databinding.library.baseAdapters.BR;
 public class Person extends BaseObservable {
 
     private String name;
+    private String color = "#ff5500";
 
     @Bindable
     public String getName() {
@@ -20,6 +21,16 @@ public class Person extends BaseObservable {
 
     public void setName( String name ) {
         this.name = name;
-//        notifyPropertyChanged( BR.name );
+        notifyPropertyChanged( BR.name );
+    }
+
+    @Bindable
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor( String color ) {
+        this.color = color;
+        notifyPropertyChanged( BR.color );
     }
 }

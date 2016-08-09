@@ -1,4 +1,5 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -21,16 +22,28 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
             android:layout_gravity="center_horizontal"
+            android:layout_margin="8dp"
             android:onClick="@{v->presenter.addPerson()}"
             android:text="Add Person"/>
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/rv_main"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="#aaee4422"/>
-    </LinearLayout>
+            android:layout_height="48dp"
+            android:background="#aa000000">
 
+            <com.lsjwzh.widget.recyclerviewpager.RecyclerViewPager
+                android:id="@+id/rvp_tab_host"
+                android:layout_width="204dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:background="#000000"
+                android:clipToPadding="false"
+                android:paddingLeft="55dp"
+                android:paddingRight="55dp"
+                app:rvp_flingFactor="0.5"
+                app:rvp_singlePageFling="false"
+                app:rvp_triggerOffset="0.5"/>
+        </RelativeLayout>
+    </LinearLayout>
 </layout>
