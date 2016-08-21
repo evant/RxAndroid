@@ -19,7 +19,5 @@ public class MainUserAdapter extends BaseRecyclerAdapter< Person > {
 
     @Override
     public void convert( BaseBindingHolder holder, Person item, int position ) {
-        ItemMainUserBinding binding = ( ItemMainUserBinding ) holder.getBinding();
-        binding.setItem( item );
     }
 }

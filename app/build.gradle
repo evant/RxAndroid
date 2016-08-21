@@ -88,4 +88,7 @@ dependencies {
     // RecyclerViewPager
     compile "com.github.lsjwzh.RecyclerViewPager:lib:$ReclcyerViewPagerVersion"
     compile "com.github.lsjwzh.RecyclerViewPager:tablayoutsupport:$ReclcyerViewPagerVersion"
+
+    // MVVM第三方封装
+    compile 'com.kelin.mvvmlight:library:1.0.0'
 }

@@ -1,20 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
 
         <import type="android.graphics.Color"/>
 
         <variable
-            name="item"
-            type="com.oom.rxandroid.model.Person"/>
+            name="viewModel"
+            type="com.oom.rxandroid.viewModel.ItemViewModel"/>
     </data>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="48dp"
-        android:text="@{item.name}"
-        android:textSize="18sp"
+        android:clickable="true"
         android:gravity="center"
-        android:textColor="@{Color.parseColor(item.color)}"/>
+        android:text="@{viewModel.name}"
+        android:textColor="@{viewModel.viewStyle.textColor}"
+        android:textSize="18sp"
+        bind:clickCommand="@{viewModel.onItemClick}"/>
 </layout>
