@@ -23,6 +23,13 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                bind:itemView="@{viewModel.itemViewSelector}"
+                bind:viewModels="@{viewModel.itemViewModels}"/>
+
             <com.oom.rxandroid.specialscrollview.SpecialNoScrollListView
                 android:id="@+id/rv_main"
                 android:layout_width="match_parent"

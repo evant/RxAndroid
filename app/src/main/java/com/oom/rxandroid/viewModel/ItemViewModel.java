@@ -6,8 +6,8 @@ import android.databinding.ObservableInt;
 import android.graphics.Color;
 import android.widget.Toast;
 
+import com.kelin.mvvmlight.base.ViewModel;
 import com.kelin.mvvmlight.command.ReplyCommand;
-import com.oom.rxandroid.base.viewModel.ViewModel;
 import com.oom.rxandroid.model.Person;
 
 /**

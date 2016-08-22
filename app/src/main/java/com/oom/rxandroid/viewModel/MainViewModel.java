@@ -16,7 +16,6 @@ import me.tatarka.bindingcollectionadapter.ItemView;
 import me.tatarka.bindingcollectionadapter.ItemViewSelector;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by YoungDroid on 2016/8/21.
@@ -46,7 +45,7 @@ public class MainViewModel implements ViewModel {
 
         Observable.interval( 1, TimeUnit.SECONDS )
                 .flatMap( aLong -> Observable.just( aLong * 10 ) )
-                .map( aLong1 -> new Person("Person : " + aLong1) )
+                .map( aLong1 -> new Person( "Person : " + aLong1 ) )
                 .take( 50 )
                 .observeOn( AndroidSchedulers.mainThread() )
                 .subscribe( person -> {
