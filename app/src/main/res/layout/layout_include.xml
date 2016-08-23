@@ -1,0 +1,36 @@
+<layout>
+
+    <data>
+
+        <import type="me.tatarka.bindingcollectionadapter.LayoutManagers"/>
+
+        <variable
+            name="includeViewModel"
+            type="com.oom.rxandroid.viewModel.IncludeViewModel"/>
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="#ff5500"
+            android:hint="@string/app_name"
+            android:textColorHint="#000000"
+            app:clickCommand="@{includeViewModel.onTitleClick}"
+            android:text="@{includeViewModel.someWords}"/>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#ff5500"
+            app:itemView="@{includeViewModel.itemView}"
+            app:items="@{includeViewModel.itemViewModels}"
+            app:layoutManager="@{LayoutManagers.linear()}"/>
+    </LinearLayout>
+</layout>

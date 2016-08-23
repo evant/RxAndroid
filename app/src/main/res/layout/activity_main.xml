@@ -1,12 +1,6 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/apk/res-auto"
-    >
+<layout>
 
     <data>
-
-        <import type="me.tatarka.bindingcollectionadapter.LayoutManagers"/>
-
-        <import type="android.view.View"/>
 
         <variable
             name="viewModel"
@@ -14,6 +8,8 @@
     </data>
 
     <com.oom.rxandroid.specialscrollview.SpecialNestedScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:bind="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
@@ -23,19 +19,12 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
+            <include
+                layout="@layout/layout_include"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                bind:itemView="@{viewModel.itemViewSelector}"
-                bind:viewModels="@{viewModel.itemViewModels}"/>
+                bind:includeViewModel="@{viewModel.includeViewModel}"/>
 
-            <com.oom.rxandroid.specialscrollview.SpecialNoScrollListView
-                android:id="@+id/rv_main"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                bind:itemView="@{viewModel.itemViewSelector}"
-                bind:items="@{viewModel.itemViewModels}"/>
         </LinearLayout>
     </com.oom.rxandroid.specialscrollview.SpecialNestedScrollView>
 </layout>

@@ -4,10 +4,8 @@ import android.app.Activity;
 import android.databinding.ObservableField;
 import android.databinding.ObservableInt;
 import android.graphics.Color;
-import android.widget.Toast;
 
-import com.kelin.mvvmlight.base.ViewModel;
-import com.kelin.mvvmlight.command.ReplyCommand;
+import com.oom.rxandroid.base.viewModel.ViewModel;
 import com.oom.rxandroid.model.Person;
 
 /**
@@ -19,10 +17,10 @@ public class ItemViewModel implements ViewModel {
     // Context
     private Activity activity;
 
-    // 数据模型（model）
+    // model
     private Person person;
 
-    // 数据绑定（data filed）
+    // data filed
     public final ObservableField< String > name = new ObservableField<>();
 
     public ViewStyle viewStyle = new ViewStyle();
@@ -31,11 +29,7 @@ public class ItemViewModel implements ViewModel {
         public final ObservableInt textColor = new ObservableInt();
     }
 
-    // 命令绑定（command）
-    public final ReplyCommand onItemClick = new ReplyCommand( () -> {
-        Toast.makeText( activity, name.get(), Toast.LENGTH_SHORT ).show();
-        this.viewStyle.textColor.set( Color.parseColor( "#ff5500" ) );
-    } );
+    // Command
 
     public ItemViewModel( Activity activity, Person person ) {
         this.activity = activity;

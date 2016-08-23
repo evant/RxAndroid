@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    >
 
     <data>
 
         <import type="android.graphics.Color"/>
 
         <variable
-            name="viewModel"
+            name="itemViewModel"
             type="com.oom.rxandroid.viewModel.ItemViewModel"/>
     </data>
 
@@ -16,8 +16,7 @@
         android:layout_height="48dp"
         android:clickable="true"
         android:gravity="center"
-        android:text="@{viewModel.name}"
-        android:textColor="@{viewModel.viewStyle.textColor}"
-        android:textSize="18sp"
-        bind:clickCommand="@{viewModel.onItemClick}"/>
+        android:text="@{itemViewModel.name}"
+        android:textColor="@{itemViewModel.viewStyle.textColor}"
+        android:textSize="18sp"/>
 </layout>
