@@ -17,12 +17,12 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate( savedInstanceState );
 
         // Crash code
-        ViewDataBinding binding = DataBindingUtil.setContentView( this, R.layout.activity_main );
-        binding.setVariable( BR.viewModel, new MainViewModel( this ) );
+//        ViewDataBinding binding = DataBindingUtil.setContentView( this, R.layout.activity_main );
+//        binding.setVariable( BR.viewModel, new MainViewModel( this ) );
 
         // Not Crash code
-//        ViewDataBinding binding = DataBindingUtil.setContentView( this, R.layout.layout_include );
-//        binding.setVariable( BR.includeViewModel, new IncludeViewModel( this ) );
+        ViewDataBinding binding = DataBindingUtil.setContentView( this, R.layout.layout_include );
+        binding.setVariable( BR.includeViewModel, new IncludeViewModel( this ) );
 
         // here if i use this, work ok.
         // but it will crash when i use  activity_main.xml <include /> layout_include.xml
