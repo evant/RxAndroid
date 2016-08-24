@@ -1,8 +1,5 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
-apply plugin: 'me.tatarka.retrolambda'
-def AAVersion = '3.3.2'
-def ReclcyerViewPagerVersion = 'v1.1.0'
 
 android {
     compileSdkVersion 24
@@ -27,16 +24,6 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    apt {
-        arguments {
-            androidManifestFile variant.outputs[0]?.processResources?.manifestFile
-            resourcePackageName "com.oom.translatecommunication"
-        }
-    }
 
     packagingOptions {
         exclude 'META-INF/notice.txt'
@@ -57,38 +44,6 @@ dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:24.1.0'
-    // MaterialDesign
     compile 'com.android.support:cardview-v7:24.1.0'
     compile 'com.android.support:recyclerview-v7:24.1.0'
-    // 线程通信EventBus
-    compile 'de.greenrobot:eventbus:2.4.0'
-    // OK Http
-    compile 'com.squareup.okhttp3:okhttp:3.0.1'
-    // 解析框架
-    compile(
-            [group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.4.1'],
-            [group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.4.1'],
-            [group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.4.1']
-    )
-    // 网络框架
-    compile 'com.squareup.retrofit2:retrofit:2.0.0'
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.0.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.0.0'
-    compile 'com.squareup.retrofit2:converter-jackson:2.0.0'
-    compile 'com.squareup.okhttp3:logging-interceptor:3.0.1'
-    // RX系列
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'io.reactivex:rxjava:1.1.6'
-    // 注解框架
-    apt "org.androidannotations:androidannotations:$AAVersion"
-    compile "org.androidannotations:androidannotations-api:$AAVersion"
-    // 注解框架
-    compile 'org.projectlombok:lombok:1.16.8'
-
-    // RecyclerViewPager
-    compile "com.github.lsjwzh.RecyclerViewPager:lib:$ReclcyerViewPagerVersion"
-    compile "com.github.lsjwzh.RecyclerViewPager:tablayoutsupport:$ReclcyerViewPagerVersion"
-
-    // MVVM第三方封装
-    compile 'com.kelin.mvvmlight:library:1.0.0'
 }
